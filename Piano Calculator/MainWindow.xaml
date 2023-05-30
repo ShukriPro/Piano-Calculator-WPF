@@ -1,0 +1,82 @@
+﻿<Window x:Class="Piano_Calculator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Calculator" Height="450" Width="300">
+    <Window.Resources>
+        <Style TargetType="Button" x:Key="FontSize">
+            <Setter Property="FontSize" Value="20" />
+      
+            <Setter Property="Background" Value="#EFEFEF"/>
+            <Setter Property="Foreground" Value="Black" />
+        </Style>
+        <Style TargetType="Button" x:Key="FontStyleBlack">
+            <Setter Property="FontSize" Value="20" />
+           
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="Foreground" Value="WhiteSmoke" />
+            <Style.Triggers>
+                <Trigger Property="IsPressed" Value="True">
+                    <Setter Property="Background" Value="#83FF22" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*" />
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="5*" />
+        </Grid.RowDefinitions>
+
+        <!--Row 1 -->
+        <Grid Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,20,0">
+            <Label Content="" FontSize="50" Foreground="Black"  x:Name="resultLabel"/>
+
+        </Grid>
+        <!--Row 2-->
+        <Button Grid.Row="1" Click="Button_Change"  Style="{StaticResource FontStyleBlack}" Content="Do, C#, No" FontSize="10" />
+        <!--Row 3-->
+        <Grid Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name="btnC"  Style="{StaticResource FontStyleBlack}" Content="C"  Grid.Row="0" Grid.Column="0" Click="btnC_Click"/>
+            <Button x:Name="btnCE" Click="Button_Clicked" Style="{StaticResource FontStyleBlack}" Content="CE" Grid.Row="0" Grid.Column="1" FontSize="20"/>
+            <Button x:Name="btnPercent" Click="Button_Clicked" Style="{StaticResource FontStyleBlack}" Content="%" Grid.Row="0" Grid.Column="2"/>
+            <Button x:Name="btnDivide" Click="Button_Clicked" Style="{StaticResource FontStyleBlack}" Content="/" Grid.Row="0" Grid.Column="3"/>
+
+            <Button x:Name="btn7" Click="Button_Clicked" Style="{StaticResource FontSize}" Content="7" Grid.Row="1" Grid.Column="0"/>
+            <Button x:Name="btn8" Click="Button_Clicked" Style="{StaticResource FontSize}" Content="8" Grid.Row="1" Grid.Column="1"/>
+            <Button x:Name="btn9" Click="Button_Clicked" Style="{StaticResource FontSize}" Content="9" Grid.Row="1" Grid.Column="2"/>
+            <Button x:Name="btnMultiply" Click="Button_Clicked" Style="{StaticResource FontStyleBlack}" Content="*" Grid.Row="1" Grid.Column="3"/>
+
+            <Button x:Name="btn4" Click="Button_Clicked" Style="{StaticResource FontSize}" Content="4" Grid.Row="2" Grid.Column="0"/>
+            <Button x:Name="btn5" Click="Button_Clicked" Style="{StaticResource FontSize}" Content="5" Grid.Row="2" Grid.Column="1"/>
+            <Button x:Name="btn6" Click="Button_Clicked" Style="{StaticResource FontSize}" Content="6" Grid.Row="2" Grid.Column="2"/>
+            <Button x:Name="btnSubtract" Click="Button_Clicked" Style="{StaticResource FontStyleBlack}" Content="-" Grid.Row="2" Grid.Column="3"/>
+
+            <Button x:Name="btn1" Click="Button_Clicked" Style="{StaticResource FontSize}" Content="1" Grid.Row="3" Grid.Column="0"/>
+            <Button x:Name="btn2" Click="Button_Clicked" Style="{StaticResource FontSize}" Content="2" Grid.Row="3" Grid.Column="1"/>
+            <Button x:Name="btn3" Click="Button_Clicked" Style="{StaticResource FontSize}" Content="3" Grid.Row="3" Grid.Column="2"/>
+            <Button x:Name="btnAdd" Click="Button_Clicked" Style="{StaticResource FontStyleBlack}" Content="+" Grid.Row="3" Grid.Column="3"/>
+
+            <Button x:Name="btnDoubleZero" Click="Button_Clicked" Style="{StaticResource FontSize}" Content="00" Grid.Row="4" Grid.Column="0"/>
+            <Button x:Name="btnZero" Click="Button_Clicked" Style="{StaticResource FontSize}" Content="0" Grid.Row="4" Grid.Column="1"/>
+            <Button x:Name="btnDecimal" Click="Button_Clicked" Style="{StaticResource FontSize}" Content="." Grid.Row="4" Grid.Column="2"/>
+            <Button x:Name="btnEquals" Click="EqualsButton_Clicked" Style="{StaticResource FontStyleBlack}" Content="=" Grid.Row="4" Grid.Column="3"/>
+
+        </Grid>
+    </Grid>
+</Window>
